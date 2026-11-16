@@ -1,0 +1,15 @@
+{
+  "helius_rpc_solana": "https://mainnet.helius-rpc.com/?api-key=SIMULATED_KEY",
+  "alchemy_rpc_base": "https://base-mainnet.g.alchemy.com/v2/SIMULATED_KEY",
+  "alchemy_rpc_arbitrum": "https://arb-mainnet.g.alchemy.com/v2/SIMULATED_KEY",
+  "jito_block_engine": "https://mainnet.block-engine.jito.wtf",
+  "flashbots_relay": "https://relay.flashbots.net",
+  "rpc_timeout_ms": 150,
+  "min_liquidity_multiplier": 40,
+  "max_top10_holder_share_bps": 2200,
+  "max_tax_bps": 200,
+  "purge_interval_ms": 21600000,
+  "min_profit_factor_scaled": 1750,
+  "demote_profit_factor_scaled": 1400,
+  "demote_consecutive_losses": 3
+}

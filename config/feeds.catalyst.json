@@ -1,0 +1,26 @@
+{
+  "tree_of_alpha_ws": "wss://news.treeofalpha.com/ws",
+  "sec_edgar_rss": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent",
+  "exchanges_ws": [
+    "wss://stream.binance.com:9443/ws",
+    "wss://ws.okx.com:8443/ws/v5/public"
+  ],
+  "trusted_tier1": [
+    "SEC_EDGAR",
+    "BINANCE_ANNOUNCEMENT",
+    "UPBIT_NOTICE",
+    "PR_NEWSWIRE"
+  ],
+  "trusted_tier2": [
+    "TREE_OF_ALPHA",
+    "REUTERS",
+    "BLOOMBERG"
+  ],
+  "social_tier3": [
+    "X_TWITTER_VERIFIED"
+  ],
+  "tier3_max_trust_bps": 4000,
+  "decay_lambda_per_sec": 0.15,
+  "insider_drift_max_bps_majors": 220,
+  "insider_drift_max_bps_alts": 450
+}

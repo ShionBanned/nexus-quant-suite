@@ -1,0 +1,29 @@
+{
+  "name": "nexus-quant-suite",
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "build:ui": "esbuild src/ui_dashboard/main.tsx --bundle --outfile=public/dashboard.js --loader:.tsx=tsx --loader:.ts=ts --format=iife",
+    "build": "npm run build:ui && tsc",
+    "start": "npm run build:ui && tsx src/index.ts",
+    "backup": "tsx scripts/run_backup.ts"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/ws": "^8.18.2",
+    "better-sqlite3": "^13.0.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "ws": "^8.22.1"
+  }
+}

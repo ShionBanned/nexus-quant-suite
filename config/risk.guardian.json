@@ -1,0 +1,12 @@
+{
+  "execution_mode_default": "SHADOW",
+  "base_capital_micro": "100000000000",
+  "max_exposure_bps": 3000,
+  "max_open_positions": 3,
+  "daily_circuit_breaker_bps": -400,
+  "auto_sweep_threshold_bps": 2500,
+  "cold_wallet_address": "So11111111111111111111111111111111111111112",
+  "cancel_all_after_ms": 5000,
+  "shadow_rtt_latency_ms": 35,
+  "taker_fee_bps": 7
+}

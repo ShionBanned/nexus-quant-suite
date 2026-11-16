@@ -1,0 +1,8 @@
+{
+  "api_key": "YOUR_BINANCE_API_KEY",
+  "api_secret": "YOUR_BINANCE_API_SECRET",
+  "is_testnet": true,
+  "use_futures": true,
+  "strict_price_validation": true,
+  "taker_fee_bps": 5
+}

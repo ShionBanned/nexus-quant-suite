@@ -1,0 +1,31 @@
+# ==============================================================================
+# NEXUS QUANT SUITE v2.0 - REGLAS INMUTABLES DE INGENIERÍA CUANTITATIVA (NIVEL N2)
+# ==============================================================================
+
+# LEY 1: ARITMÉTICA ENTERA ESTRICTA (PROHIBICIÓN TOTAL DE PUNTO FLOTANTE)
+- Prohibición absoluta del uso de float, double, o Number decimal de JavaScript para representar precios, saldos, balances, tamaños de orden o cálculos de deslizamiento (slippage).
+- Todo valor monetario se procesa mediante enteros exactos de 64/128 bits (BigInt) en Micro-Dólares (1 USD = 1,000,000 µUSD = 10^6) o unidades atómicas nativas (lamports / wei).
+- Todas las proporciones, comisiones, umbrales y variaciones relativas se expresan en Puntos Base (bps): 1% = 100 bps; 100% = 10,000 bps (10^4).
+
+# LEY 2: PARIDAD ESTRICTA SHADOW VS. LIVE
+- Ambos motores (Sentinel Quant y Catalyst Engine) operan por defecto en:
+  EXECUTION_MODE = 'SHADOW'
+- Prohibido el uso del último precio operado (last price) en simulación.
+- El simulador L2 Shadow aplica obligatoriamente una latencia de red realista RTT de 35 ms y simula el llenado contra el Libro de Órdenes Nivel 2 (L2), descontando comisiones Taker y rechazando órdenes que excedan el precio tope (Pcap).
+
+# LEY 3: CERO ÓRDENES DESNUDAS (ATOMIC SERVER-SIDE BRACKETS)
+- Queda terminantemente prohibido el envío de órdenes desnudas sin protección nativa.
+- Toda orden de entrada debe llevar incrustado en el mismo paquete de red:
+  1. Su parámetro nativo de stopLoss en servidor.
+  2. El temporizador de desconexión cancelAllAfter(5000) (Dead-Man's Switch a 5000 ms).
+- Ninguna orden puede enviarse en dos pasos sucesivos (apertura y luego stop-loss por separado).
+
+# LEY 4: AISLAMIENTO DE FIRMA CRIPTOGRÁFICA Y MUTEX ATÓMICO
+- Ni los conectores WebSocket, ni el clasificador de inferencia IA, ni la interfaz de usuario web tienen acceso a claves privadas criptográficas.
+- Solo el módulo firmante aislado despacha transacciones tras obtener y validar el bloqueo atómico (Mutex) del RiskGuardian.
+
+# LEY 5: LÍMITES CRÍTICOS DEL RISK GUARDIAN
+- Exposición máxima total del portafolio: 3,000 bps (30.00% del capital base).
+- Máximo de posiciones simultáneas abiertas: 3 posiciones.
+- Circuit Breaker Diario: si el drawdown móvil en 24h cae <= -400 bps (-4.00%), se congela el sistema de inmediato, cancelando órdenes activas y bloqueando nuevas entradas.
+- Auto-Sweep a Cold Wallet: si la equidad supera +2,500 bps (+25.00%) sobre el High-Water Mark (HWM), se barre automáticamente la ganancia excedentaria hacia la bóveda fría.

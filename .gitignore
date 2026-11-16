@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build artifacts
+dist/
+public/dashboard.js
+
+# SQLite Database and WAL journals
+*.db
+*.db-shm
+*.db-wal
+backups/
+
+# Logs and runtime locks
+logs/
+*.log
+*.pid
+
+# Environment variables and API keys
+.env
+.env.*
+!.env.example
+config/binance.json
+
+# Operating System & IDE metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
