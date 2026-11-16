@@ -3,6 +3,8 @@
 > **Institutional-Grade Quantitative Trading Engine & 24/7 Autonomous Risk Supervisor**  
 > *Zero-Floating-Point Math (Strict 64/128-bit BigInt Micro-USD & BPS) | Atomic Mutex Execution | Real-time L2 Order Book Simulation | Forensic SQLite WAL Persistence*
 
+[Versión en Español](README.es.md)
+
 ---
 
 ## ⚡ Overview
